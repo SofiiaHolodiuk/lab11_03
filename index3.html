@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Формули для різних фігур</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+            font-family: 'Tahoma', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .figure-content {
+            background-color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="figure-content">
+        <h1>Формули для фігур</h1>
+        <script> 
+            "use strict";
+            let figure = prompt("Виберіть фігуру: коло, прямокутник або трикутник", "").toLowerCase();
+            
+            let p, s;  
+            
+            if (figure === "коло") {
+                let r = parseFloat(prompt("Введіть радіус кола r", ""));
+                if (!isNaN(r) && r > 0) {
+                    p = 2 * Math.PI * r;
+                    s = Math.PI * Math.pow(r, 2);
+                } else {
+                    alert("Невірне значення радіуса.");
+                }
+            } else if (figure === "прямокутник") {
+                let a = parseFloat(prompt("Введіть сторону a", ""));
+                let b = parseFloat(prompt("Введіть сторону b", ""));
+                if (!isNaN(a) && a > 0 && !isNaN(b) && b > 0) {
+                    p = 2 * (a + b);
+                    s = a * b;
+                } else {
+                    alert("Невірне значення сторін.");
+                }
+            } else if (figure === "трикутник") {
+                let a = parseFloat(prompt("Введіть довжину сторони трикутника a", ""));
+                if (!isNaN(a) && a > 0) {
+                    p = 3 * a;
+                    s = (Math.pow(a, 2) * Math.sqrt(3)) / 4;
+                } else {
+                    alert("Невірне значення сторони.");
+                }
+            } else {
+                alert("Я не знаю що це за фігура");
+            }
+            
+            if (p && s) {
+                alert("Периметр = " + p.toFixed(2));
+                alert("Площа = " + s.toFixed(2));
+            }
+        </script>
+    </div>
+</body>
+</html>
